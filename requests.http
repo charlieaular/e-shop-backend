@@ -1,0 +1,132 @@
+@apiUrl = http://localhost:8000
+@authToken = {{login.response.body.token}}
+
+###
+# @name login
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "charlie@gmail.com",
+  "password": "123456"
+}
+
+###
+# @name register
+POST {{apiUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "name": "Charlie Aular",
+  "email": "charlieaular@gmail.com",
+  "password": "123456"
+}
+
+###
+GET {{apiUrl}}/auth/user
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+GET {{apiUrl}}/category
+Content-Type: application/json
+
+###
+POST {{apiUrl}}/category
+Content-Type: application/json
+
+{
+  "name": "nueva"
+}
+
+###
+PUT {{apiUrl}}/category/1
+Content-Type: application/json
+
+{
+  "name": "nueva1123gopsdhjni"
+}
+
+###
+DELETE {{apiUrl}}/category/5
+Content-Type: application/json
+
+###
+GET {{apiUrl}}/products/category/1
+Content-Type: application/json
+
+###
+GET {{apiUrl}}/products/10
+Content-Type: application/json
+
+###
+POST {{apiUrl}}/cart
+Content-Type: application/json
+
+{
+  "product_id": 2
+}
+
+###
+GET {{apiUrl}}/cart/products
+Content-Type: application/json
+
+###
+POST {{apiUrl}}/cart/pay
+Content-Type: application/json
+
+###
+DELETE {{apiUrl}}/cart/products/14
+Content-Type: application/json
+
+###
+GET {{apiUrl}}/tags
+Content-Type: application/json
+
+###
+POST {{apiUrl}}/tags
+Content-Type: application/json
+
+{
+  "name": "nueva"
+}
+
+###
+PUT {{apiUrl}}/tags/1
+Content-Type: application/json
+
+{
+  "name": "Esta es la nueva tag"
+}
+
+###
+DELETE {{apiUrl}}/tags/2
+Content-Type: application/json
+
+###
+POST {{apiUrl}}/addresses
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "address": "test2"
+}
+
+###
+GET {{apiUrl}}/addresses
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+PUT {{apiUrl}}/addresses/2
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "address": "testgkmhfdd"
+}
+
+###
+DELETE {{apiUrl}}/addresses/2
+Content-Type: application/json
+Authorization: Bearer {{authToken}}

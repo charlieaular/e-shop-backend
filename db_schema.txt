@@ -1,0 +1,90 @@
+Table Users as U{
+  id int
+  name varchar
+  email varchar
+  password varchar
+  role varchar
+}
+
+
+Table Addresses as Ad {
+  id int
+  address varchar
+  id_user int [ref: > U.id]
+}
+
+Table Products as P {
+  id int
+  name varchar
+  image varchar
+  description varchar
+  price float
+  
+}
+
+Table Sizes as Si {
+  id int
+  name varchar
+}
+
+Table Colors as Co {
+  id int
+  name varchar
+}
+
+Table Attributes as At {
+  id int
+  id_product int [ref: > P.id]
+  id_size int[] [ref: > Si.id]
+  id_color int[] [ref: > Co.id]
+}
+
+Table Categories as Ca {
+  id int
+  name varchar
+}
+
+Table ProductsCategories as PC {
+  id int
+  id_product int [ref: > P.id]
+  id_category int [ref: > Ca.id]
+}
+
+Table Tags as Ta {
+  id int
+  name varchar
+}
+
+Table ProductsTags as PT {
+  id int
+  id_product int [ref: > P.id]
+  id_tags int[] [ref: > Ta.id]
+}
+
+Table Carts {
+  id int
+  id_user int [ref: > U.id]
+  status varchar
+  total_price float
+}
+
+Table CartProducts as CaPo {
+  id int
+  id_cart int [ref: > Carts.id]
+  id_size int [ref: > Si.id]
+  id_color int [ref: > Co.id]
+  name varchar
+  image varchar
+  description varchar
+  price float
+  quantity int
+}
+
+Table Orders as Or {
+  id int
+  id_user int [ref: > U.id]
+  id_cart int [ref: > Carts.id]
+  status varchar
+  
+  
+}
